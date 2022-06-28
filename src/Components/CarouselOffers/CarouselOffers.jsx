@@ -31,7 +31,7 @@ const CarouselProducts = () => {
 
 
   return (
-    <div className="container h-auto p-5 mx-auto pb-20 relative">
+    <div className="container h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container">
         <h1 className="text-center text-3xl text-blackp font-semibold mb-10">Ofertas Imperdibles</h1>
         <div className="flex gap-2 colums-3  items-center overflow-x-auto">
             {   

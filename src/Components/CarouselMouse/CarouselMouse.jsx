@@ -31,7 +31,7 @@ const CarouselMouse = () => {
 
 
   return (
-    <div className="container h-auto p-5 mx-auto pb-20 relative">
+    <div className="sm:container w-3/4 git h-auto p-5 mx-auto pb-20 relative">
         <h1 className="text-center text-3xl text-blackp font-semibold mb-10">Mouse Gaming</h1>
         <div className="flex gap-2 items-center overflow-x-auto">
             {   
