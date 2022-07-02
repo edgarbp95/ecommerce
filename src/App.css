@@ -81,3 +81,67 @@ button {
  border-right: 1px solid #191919;
  padding-right: 50px;
 }
+
+.active-animation{
+  animation: translateX 0.5s forwards;
+}
+
+@keyframes translateX {
+  0%{
+    transform: translateX(0);
+
+  }
+  100%{
+    transform: translateX(-500%);
+  }
+
+}
+
+
+.search > div:after{
+  content: "";
+  background: white;
+  width: 4px;
+  height: 10px;
+  position: absolute;
+  top: 22px;
+  right: 1px;
+  transform:rotate(135deg)
+}
+
+.search > div > input {
+  outline: 0 none;
+  border-radius: 35px;
+  border: solid 3px white;
+  transition: width 0.5s;
+  background: transparent;
+
+}
+
+.search > div > input::placeholder {
+  color: white;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+  font-size: 15px;
+  font-weight: 200;
+  font-family: sans-serif;
+}
+
+.search > div > input:focus,
+.search > div > input:not(:placeholder-shown) {
+  width: 200px;
+}
+
+
+.search > div > input:focus{
+  border: 2px solid white;
+  border-color: white;
+  outline: 0 none;
+ 
+  
+}
+

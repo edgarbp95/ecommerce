@@ -1,10 +1,13 @@
 import React from 'react'
+import RegisterForm from '../Components/RegisterForm'
 
 const Register = () => {
   return (
-    <div>
-      <h2>Este es el registro</h2>
-    </div>
+      <div className='py-20 bg-gray-100'>
+        <h2 className='text-center text-blackp font-bold text-3xl'>Formulario de Registro</h2>
+        <RegisterForm />
+      </div>
+
   )
 }
 

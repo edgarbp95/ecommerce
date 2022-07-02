@@ -1,22 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const ItemCarouselMouse = ({dataIndex,image,name}) => {
+const ItemCarouselMouse = ({dataIndex,image,name,clase}) => {
+    const scrollTop = ()=>{
+        window.scrollTo(0,0)
+    }
   return (
     <>
-      <div data-index={dataIndex} className="flex-1 max-w-lg  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 ">
-        <a href="#">
+      <div data-index={dataIndex} className={`${clase} flex-1 max-w-lg min-w-fit bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 `}>
+      <Link onClick={scrollTop} to={`/${name}`}>
             <img
             className="py-5 rounded-t-lg h-56 min-w-fit mx-auto" 
             src={image}
             alt="product image"
             />
-        </a>
+        </Link>
         <div className="px-5 pb-5">
-            <a href="#">
+
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 {name}
             </h5>
-            </a>
+            
             <div className="flex items-center mt-2.5 mb-5">
             <svg
                 className="w-5 h-5 text-yellow-300"
@@ -66,12 +70,16 @@ const ItemCarouselMouse = ({dataIndex,image,name}) => {
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
                 $599
             </span>
-            <a
-                href="#"
+            <Link to={`/${name}`}>
+            <button
+                onClick={()=>{setViewState(viewProduct)
+                    window.scrollTo(0,0)
+                   }}
                 className="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600"
             >
-                Añadir al carrito
-            </a>
+                Ver producto
+            </button>
+            </Link>
             </div>
         </div>
 </div>
