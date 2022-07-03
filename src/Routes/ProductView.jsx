@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../Context/CartProvider'
 import { ProductsContext } from '../Context/ProductsProvider'
 
 const ProductView = () => {
@@ -8,21 +9,48 @@ const ProductView = () => {
 
     const [quanty, setQuanty] = useState(1)
 
-  
+    const { cart, cartState, setCartState, cartTrue, cartFalse } = useContext(CartContext);
 
     const {dataProducts} = useContext(ProductsContext)
 
-    console.log(dataProducts)
 
     const producto = dataProducts.filter(product=> product.nombre == name)
-    
-    console.log(producto[0].URL)
+   
 
     useEffect(()=>{
 
     },[quanty])
 
+    const addCart = (product) =>{
+        
+       
+        let item = {
+            name: product.nombre,
+            price: product.precio,
+            image: product.URL,
+            id:product.id,
+            quantyCart: quanty
+        }
 
+
+        //verificar existencia
+
+        const index = cart.findIndex(p => p.name === item.name);
+
+        index == -1 ? cart.push(item) : cart[index].quantyCart+=quanty;
+        
+        
+        // if (cart.hasOwnProperty(item.name)) {
+        //     item.quantyCart = cart[item.name].cantidad + 1
+        // }
+    
+        // cart[producto.id] = { ...item }
+       
+    
+        console.log(cart)
+    }
+
+    console.log(cart)
  
   return (
     <div className='px-44 py-12 flex mx-auto bg-gray-100'>
@@ -38,7 +66,7 @@ const ProductView = () => {
             <h2 className='text-3xl font-bold mb-6'>{producto[0].nombre}</h2>
             <p className='mb-6 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati fuga est distinctio cumque eos omnis nam, quisquam nulla laudantium? Dolor recusandae cumque corporis iste ipsam atque eos. Explicabo, pariatur porro!
             Modi dolor earum quo optio molestias iure neque tempore corrupti aliquid culpa vel labore eius accusamus dicta deleniti blanditiis, porro asperiores nisi nam incidunt, dolores id? Vel architecto odio blanditiis.</p>
-            <p>{producto.precio}</p>
+            <p className="mt-1 mb-8 text-4xl font-medium ">${producto[0].precio}</p>
             <div className='flex gap-4 items-center'>
                 <div className='flex gap-4'>
                     <button className='mr-2 font-medium text-orange-500 w-4 text-lg' onClick={()=>{setQuanty(quanty==1 ? quanty : quanty-1)}} >-</button>
@@ -48,7 +76,7 @@ const ProductView = () => {
                     <button className='ml-2 font-medium text-orange-500 w-4' onClick={()=>{setQuanty(quanty+1)}} >+</button>
                 </div>
                 
-                <button className='h-10 text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600'>
+                <button onClick={()=>{addCart(producto[0])}} className='h-10 text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600'>
                     Añadir a carrito
                 </button>
             </div>

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ProductsContext } from '../../Context/ProductsProvider'
 
-const ItemCarouselMouse = ({dataIndex,image,name,clase}) => {
+const ItemCarouselMouse = ({dataIndex,image,name,clase,viewProduct}) => {
+    const {viewState,setViewState} = useContext(ProductsContext)
     const scrollTop = ()=>{
         window.scrollTo(0,0)
     }

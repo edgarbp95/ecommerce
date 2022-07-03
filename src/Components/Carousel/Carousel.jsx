@@ -10,6 +10,7 @@ const Carousel = () => {
     useEffect(()=>{
 
     },[slide])
+    
     console.log(dataProducts)
 
     const mapear = (dataProducts)=>{

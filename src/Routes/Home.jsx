@@ -3,6 +3,7 @@ import Carousel from '../Components/Carousel/Carousel'
 import Carrousel from '../Components/CarouselBanners/Carrousel'
 import CarouselMouse from '../Components/CarouselMouse/CarouselMouse'
 import CarouselOffers from '../Components/CarouselOffers/CarouselOffers'
+import ChatWithUs from '../Components/ChatWithUs'
 import InfoWebBar from '../Components/InfoBar/InfoWebBar'
 import { ProductsContext } from '../Context/ProductsProvider'
 
@@ -17,6 +18,7 @@ const Home = () => {
     <InfoWebBar />
     <Carousel />
     <CarouselMouse />
+    <ChatWithUs />
     
 
     </div>

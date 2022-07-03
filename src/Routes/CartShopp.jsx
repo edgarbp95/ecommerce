@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Cart from '../Components/Cart'
 import Input from '../Components/Input'
 
 const CartShopp = () => {
@@ -18,7 +19,7 @@ const CartShopp = () => {
         </div>
         <div className='flex justify-between w-3/4 mx-auto gap-10'>
             <div className='w-3/4 bg-white rounded-xl'>
-            <form className=" w-5/6 py-10 mx-auto flex flex-col">
+            <form onSubmit={e=>e.preventDefault()} className=" w-5/6 py-10 mx-auto flex flex-col">
             <div className="flex w-full gap-5 flex-col">
                 <p className='font-medium text-orange-500 text-base tracking-wider'>DATOS DE FACTURACION</p>
                 <div className='flex gap-5'>
@@ -74,19 +75,24 @@ const CartShopp = () => {
                 Telefono - 11 9999 9999
                 </label>
             </div>
+
             <div>
-                <p className='font-medium text-orange-500 text-base tracking-wider mt-4'>DATOS DE ENVIO</p>
+                <p className='font-medium text-orange-500 text-base tracking-wider mt-4 mb-2'>DATOS DE ENVIO</p>
             </div>
-                <Input type="text" name="street" id="street" htmlF="street" text="Calle y Altura" />
+                <div className='flex gap-5'>
+                    <Input type="text" name="street" id="street" htmlF="street" text="Calle" />
+                    <Input type="text" name="street-ref" id="street-ref" htmlF="street-ref" text="Altura" />
+                </div>
+                
                 <div className='flex gap-5'>
                     <Input type="text" name="location" id="location" htmlF="location" text="Localidad" />
                     <Input type="text" name="zip-code" id="zip-code" htmlF="zip-code" text="Codigo Postal" />                  
                 </div>
            
             <p className='font-medium text-orange-500 text-base tracking-wider mt-4'>METODOS DE PAGO</p>
-            <select onChange={(e)=>{setPaymentMethod(e.target.value)
+            <select  onChange={(e)=>{setPaymentMethod(e.target.value)
             console.log(e.target.value)}} id="methodPayment" className="mb-6 bg-gray-50 border w-1/3 border-gray-300 text-gray-500 mt-4 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
-                <option selected>Seleccionar Método</option>
+                <option defaultValue>Seleccionar Método</option>
                 <option value="MP">MercadoPago</option>
                 <option value="debit-credit">Tarjeta de Debito/Credito</option>
                 <option value="transfer">Transferencia</option>
@@ -128,7 +134,11 @@ const CartShopp = () => {
         </form>
             </div>
 
-            <div className='w-1/4 bg-white h-96 rounded-xl'>Hola</div>
+            <div className='w-1/4 bg-white rounded-xl relative'>
+
+                <Cart />
+            
+            </div>
         </div>
     </div>
   )

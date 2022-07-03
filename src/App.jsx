@@ -10,10 +10,12 @@ import ProductView from "./Routes/ProductView"
 import CartShopp from "./Routes/CartShopp"
 
 
+
 function App() {
   
   return(
   <>
+ 
     <Navbar  />
     <Routes>
       <Route path="/" element={<Home/>} />
@@ -24,6 +26,7 @@ function App() {
       <Route path="*" element={<PageNotFound/>} />
     </Routes>
     <Footer />
+
 
   </>
   )
