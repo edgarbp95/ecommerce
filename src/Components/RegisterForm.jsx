@@ -3,7 +3,7 @@
 const RegisterForm = () => {
   return (
     <>
-        <form className="w-1/4 mx-auto m-10  flex flex-col">
+        <form className="w-1/4 mx-auto m-10  flex flex-col sm:w-3/4">
             <div className="relative z-0 w-full mb-6 group">
             <input
                 type="email"
@@ -51,7 +51,7 @@ const RegisterForm = () => {
                 Repetir contraseña
             </label>
             </div>
-            <div className="grid xl:grid-cols-2 xl:gap-6">
+            <div className="">
             <div className="flex w-full gap-5">
                 <div className="relative z-0 w-full mb-6 group">
                     <input
@@ -87,7 +87,7 @@ const RegisterForm = () => {
                 </div>
             </div>
             </div>
-            <div className="grid xl:grid-cols-2 xl:gap-6">
+            <div className="">
             <div className="relative z-0 w-full mb-6 group">
                 <input
                 type="tel"

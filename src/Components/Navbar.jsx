@@ -5,16 +5,16 @@ import SearchNav from './SearchNav'
 const Navbar = () => {
   return (
     <>
-    <div className='flex gap-5 w-full mx-auto p-5 bg-blackp items-center justify-between text-white  text-base font-medium sm:py-1 sm:ml-0'>
+    <div className='flex gap-5 w-full mx-auto p-5 bg-blackp items-center justify-between text-white  text-base font-medium sm:py-1 sm:px-1 sm:ml-0'>
       <div className='border-gray-400 border-b flex gap-5 w-full  p-5 items-center justify-between mx-10 sm:mx-0'>
-      <div className='flex gap-5 items-center '>
+      <div className='flex gap-5 items-center'>
         <NavLink className="text-xl tracking-widest font-extrabold text-white sm:text-sm " to="/" >ECOMMERCE</NavLink>
         <SearchNav />
         
       </div>
-      <div className='flex gap-5'>
-        <NavLink className="hover:text-orange-400 font-normal relative nav_menu_option sm:hidden" to="/register">REGISTER</NavLink>
-        <NavLink className="hover:text-orange-400 font-normal relative nav_menu_option sm:hidden" to="login">LOGIN</NavLink>
+      <div className='flex gap-5 items-center'>
+        <NavLink className="hover:text-orange-400 font-normal relative nav_menu_option sm:text-sm" to="/register">REGISTER</NavLink>
+        <NavLink className="hover:text-orange-400 font-normal relative nav_menu_option sm:text-sm" to="login">LOGIN</NavLink>
         <NavLink to="/cart">
         <svg
           className='ml-2 hover:fill-orange-400 cursor-pointer duration-300'

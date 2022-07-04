@@ -5,17 +5,17 @@ const ChatWithUs = () => {
     <>
     <div className='pb-10'>
 
-    <div className="p-4 w-2/4 mx-auto text-center bg-white rounded-lg shadow-lg shadow-gray-300 sm:p-8 dark:bg-gray-800 dark:border-gray-700 gap-2 flex flex-col relative">
-            <h5 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+    <div className="p-4 w-2/4 mx-auto text-center bg-white rounded-lg shadow-lg shadow-gray-300 sm:p-8 dark:bg-gray-800 dark:border-gray-700 gap-2 flex flex-col relative sm:w-5/6 ">
+            <h5 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-xl">
                 Contactate con nosotros
             </h5>
-            <p className="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
+            <p className="mb-5 text-base text-gray-500 dark:text-gray-400 sm:text-sm">
                 Consulta stock, haz tu pedido o realiza el seguimiento del mismo.
             </p>
-        <div className="justify-center flex items-center sm:flex sm:space-y-0 sm:space-x-4 gap-4">
+        <div className="justify-center flex items-center sm:flex sm:space-y-0  gap-4 sm:flex-col">
             <a
             href="#"
-            className="w-64 bg-transparent sm:w-auto border-orange-400  text-blackp border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 "
+            className="w-64 bg-transparent border-orange-400  text-blackp border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-full"
             >
                 <svg
                     className="mr-3 w-7 h-7 fill-orange-400"
@@ -50,7 +50,7 @@ const ChatWithUs = () => {
                 </svg>
                 <div className="text-left">
                     <div className="mb-1 text-xs">¿Tienes dudas?</div>
-                    <div className="-mt-1 font-sans text-sm font-semibold">
+                    <div className="-mt-1 font-sans text-sm font-semibold sm:text-xs">
                     Consultanos por WhatsApp
                     </div>
                 </div>
@@ -58,7 +58,7 @@ const ChatWithUs = () => {
 
             <a
             href="#"
-            className="w-64 sm:w-auto bg-transparent fill-orange-400 border-2 border-orange-400 text-blackp focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+            className="w-64 sm:w-auto bg-transparent fill-orange-400 border-2 border-orange-400 text-blackp focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-full sm:justify-start"
             >
 
                 <svg
@@ -84,7 +84,7 @@ const ChatWithUs = () => {
                     
                     <div className="text-left ml-2">
                         <div className="mb-1 text-xs">Correo</div>
-                        <div className="-mt-1 font-sans text-sm font-semibold">Escribenos por Correo</div>
+                        <div className="-mt-1 font-sans text-sm font-semibold sm:text-xs">Escribenos por Correo</div>
                     </div>
             </a>                
         </div>

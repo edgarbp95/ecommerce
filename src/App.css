@@ -104,7 +104,7 @@ button {
   width: 4px;
   height: 10px;
   position: absolute;
-  top: 22px;
+  top: 20px;
   right: 1px;
   transform:rotate(135deg)
 }

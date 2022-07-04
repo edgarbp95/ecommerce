@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ProductsContext } from '../../Context/ProductsProvider'
 
-const ItemCarouselMouse = ({dataIndex,image,name,clase,viewProduct}) => {
+const ItemCarouselMouse = ({dataIndex,image,name,clase,viewProduct,precio}) => {
     const {viewState,setViewState} = useContext(ProductsContext)
     const scrollTop = ()=>{
         window.scrollTo(0,0)
@@ -12,14 +12,14 @@ const ItemCarouselMouse = ({dataIndex,image,name,clase,viewProduct}) => {
       <div data-index={dataIndex} className={`${clase} flex-1 max-w-lg min-w-fit bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 `}>
       <Link onClick={scrollTop} to={`/${name}`}>
             <img
-            className="py-5 rounded-t-lg h-56 min-w-fit mx-auto" 
+            className="py-5 rounded-t-lg h-56 min-w-fit mx-auto sm:h-44 sm:py-2" 
             src={image}
             alt="product image"
             />
         </Link>
         <div className="px-5 pb-5">
 
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-base">
                 {name}
             </h5>
             
@@ -69,15 +69,15 @@ const ItemCarouselMouse = ({dataIndex,image,name,clase,viewProduct}) => {
             </span>
             </div>
             <div className="flex justify-between items-center">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                $599
+            <span className="text-3xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                ${precio}
             </span>
             <Link to={`/${name}`}>
             <button
                 onClick={()=>{setViewState(viewProduct)
                     window.scrollTo(0,0)
                    }}
-                className="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600"
+                className="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600 sm:text-xs"
             >
                 Ver producto
             </button>

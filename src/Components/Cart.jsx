@@ -58,13 +58,13 @@ const Cart = () => {
     <div className=''>
         <div className='p-6'>
         <h2 className='font-medium text-orange-500 tracking-wider border-b border-gray-300 pb-2'>TU CARRITO</h2>
-        <div className='flex flex-col w-full mt-2 overflow-y-auto h-60'>
+        <div className='flex flex-col w-full mt-2 overflow-y-auto h-60 sm:h-72'>
 
                 {cart == "" ? <h2 className='text-gray-500'>El carrito está vacio</h2> : cart.map((item)=>(
                     <ItemCart key={item.id} name={item.name} price={item.price} image={item.image} quantyCart={item.quantyCart} />
                     ))}
         </div>
-        <div className='absolute bottom-6 w-full flex flex-col gap-1 pr-14'>
+        <div className='absolute bottom-6 w-full flex flex-col gap-1 pr-14 sm:relative sm:pr-0 sm:bottom-0'>
             <div className='flex justify-between border-b border-gray-300 items-center'>
                 <p className='text-gray-400 text-xs tracking-wide'>SUBTOTAL</p>
                 <span className='text-gray-600 font-medium text-base'>${subtotal}</span>
@@ -90,7 +90,7 @@ const Cart = () => {
                     
                 </div>
                 {cuponActiveState==500 && 
-                <div className='flex gap-2 border-2 border-orange-500 w-2/4 text-xs justify-between p-1 text-white bg-orange-500 mt-2'>
+                <div className='flex gap-2 border-2 border-orange-500 w-2/4 text-xs justify-between p-1 text-white bg-orange-500 mt-2 sm:w-3/4'>
                     <p>XPRIMER ACTIVADO</p>
                     <button onClick={()=>{setCuponActiveState(0)}} >X</button>
                 </div>

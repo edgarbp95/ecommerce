@@ -7,7 +7,7 @@ import { ProductsContext } from '../../Context/ProductsProvider'
         const {viewState,setViewState} = useContext(ProductsContext)
 
          useEffect(()=>{
-             console.log("este es el nuevo " + viewState)
+            
         },[viewState])
 
         const scrollTop = ()=>{
@@ -17,10 +17,10 @@ import { ProductsContext } from '../../Context/ProductsProvider'
 
         return (
           <>
-            <div data-index={dataIndex} className={`${clase} flex-1 min-w-fit  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 `}>
+            <div data-index={dataIndex} className={`${clase} flex-1 min-w-fit  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 sm:`}>
               <Link onClick={scrollTop} to={`/${name}`}>
                   <img
-                  className="py-5 rounded-t-lg h-56 min-w-fit mx-auto" 
+                  className="py-5 rounded-t-lg h-56 min-w-fit mx-auto sm:h-44 sm:py-2" 
                   src={image}
                   alt="product image"
                   />
@@ -28,7 +28,7 @@ import { ProductsContext } from '../../Context/ProductsProvider'
               </ Link >
               <div className="px-5 pb-5">
                   
-                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-base">
                       {name}
                   </h5>
                   
@@ -78,8 +78,8 @@ import { ProductsContext } from '../../Context/ProductsProvider'
                   </span>
                   </div>
                   <div className="flex justify-between items-center">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                      {precio}
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                      ${precio}
                   </span>
                   
                   
@@ -87,10 +87,9 @@ import { ProductsContext } from '../../Context/ProductsProvider'
                   <Link to={`/${name}`}>
                   <button
                          onClick={()=>{setViewState(viewProduct)
-                         console.log("este es el"+ viewState)
                          window.scrollTo(0,0)
                         }}
-                        className="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600"
+                        className="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none duration-500 focus:ring-orange-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-400 dark:focus:ring-orange-600 sm:text-xs"
                   >
                       Ver producto
                   </button>

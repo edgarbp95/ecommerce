@@ -47,10 +47,17 @@ const CarouselMouse = () => {
 
   return (
     
-    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container">
-        <h2 className="text-center text-3xl text-blackp font-semibold mb-10">Mouse Gamers</h2>
-        <div className="flex gap-2 colums-3  items-center overflow-x-auto">
+    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container sm:pb-18">
+        <h2 className="text-center text-3xl text-blackp font-semibold mb-10 sm:text-2xl sm:mb-6">Mouse Gamers</h2>
+        <div className="flex gap-2 colums-3  items-center overflow-x-auto sm:hidden">
             {drawCards(dataProducts)}
+        </div>
+        <div className="hidden gap-2 colums-3  items-center overflow-x-auto sm:flex">
+            {dataProducts.filter((product) => product.category=="mouse").map((product)=>(
+                    
+                    <ItemCarouselMouse key={product.id} dataIndex={product.id} image={product.URL} name={product.nombre} precio={product.precio} viewProduct={product.id} />
+                ))}
+            <button className="mr-0 ml-auto text-orange-400 hover:text-orange-500 font-medium absolute bottom-12 right-4 nav_menu_option">Ver todos...</button>
         </div>
 
     </div>

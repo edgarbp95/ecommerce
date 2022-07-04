@@ -2,7 +2,7 @@
 
 const LoginForm = () => {
   return (
-      <form className="w-1/4 mx-auto m-10  flex flex-col">
+      <form className="w-1/4 mx-auto m-10  flex flex-col sm:w-3/4">
             <div className="relative z-0 w-full mb-6 group">
             <input
                 type="email"
