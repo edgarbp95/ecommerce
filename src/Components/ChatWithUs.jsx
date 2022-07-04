@@ -15,7 +15,7 @@ const ChatWithUs = () => {
         <div className="justify-center flex items-center sm:flex sm:space-y-0  gap-4 sm:flex-col">
             <a
             href="#"
-            className="w-64 bg-transparent border-orange-400  text-blackp border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-full"
+            className="w-64 bg-transparent border-orange-400  text-blackp border-2 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:justify-start sm:w-60"
             >
                 <svg
                     className="mr-3 w-7 h-7 fill-orange-400"
@@ -58,7 +58,7 @@ const ChatWithUs = () => {
 
             <a
             href="#"
-            className="w-64 sm:w-auto bg-transparent fill-orange-400 border-2 border-orange-400 text-blackp focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-full sm:justify-start"
+            className="w-64 bg-transparent fill-orange-400 border-2 border-orange-400 text-blackp focus:outline-none focus:ring-gray-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 sm:w-full sm:justify-start sm:w-60"
             >
 
                 <svg
