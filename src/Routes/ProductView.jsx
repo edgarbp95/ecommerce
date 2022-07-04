@@ -40,15 +40,37 @@ const ProductView = () => {
 
         index == -1 ? cart.push(item) : cart[index].quantyCart+=quanty;
         
-        
-        Swal.fire({
-            title: 'Agregado!',
-            text: 'Producto agregado exitosamente.',
-            icon: 'success',
+        // const Toast = Swal.mixin({
+        //     toast: true,
+        //     position: 'top-end',
+        //     showConfirmButton: false,
+        //     timer: 1500,
+        //     timerProgressBar: true,
+        //     didOpen: (toast) => {
+        //       toast.addEventListener('mouseenter', Swal.stopTimer)
+        //       toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //     }
+        //   })
+          
+        //   Toast.fire({
+        //     icon: 'success',
+        //     iconColor:"#ff8a4c",
+        //     title: 'Producto Agregado'
+        //   })
+
+
+         Swal.fire({
+             title: 'Agregado!',
+             text: 'Producto agregado exitosamente.',
+             icon: 'success',
             iconColor:"#ff8a4c",
-            confirmButtonText: 'Continuar',
-            confirmButtonColor: "#ff8a4c"
-          })
+            showConfirmButton: false,
+            //  confirmButtonText: 'Continuar',
+            //  confirmButtonColor: "#ff8a4c",
+             timer:1500,
+             timerProgressBar:true
+             
+           })
 
         // if (cart.hasOwnProperty(item.name)) {
         //     item.quantyCart = cart[item.name].cantidad + 1

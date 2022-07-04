@@ -51,8 +51,9 @@ const Cart = () => {
                             text: 'Se ha aplicado el descuento',
                             icon: 'success',
                             iconColor:"#ff8a4c",
-                            confirmButtonText: 'Continuar',
-                            confirmButtonColor: "#ff8a4c"
+                            showConfirmButton: false,
+                            timer:1500,
+                            timerProgressBar:true
                           })
                           return
                     } 
@@ -62,8 +63,9 @@ const Cart = () => {
                         text: 'El cupón es invalido.',
                         icon: 'error',
                         iconColor:"#ff8a4c",
-                        confirmButtonText: 'Volver',
-                        confirmButtonColor: "#ff8a4c"
+                        showConfirmButton: false,
+                        timer:1500,
+                        timerProgressBar:true
                       })
             
                 }
@@ -74,8 +76,9 @@ const Cart = () => {
                 text: 'Agrega un producto al carrito.',
                 icon: 'error',
                 iconColor:"#ff8a4c",
-                confirmButtonText: 'Volver',
-                confirmButtonColor: "#ff8a4c"
+                showConfirmButton: false,
+                timer:1500,
+                timerProgressBar:true
               })
         }
     }   
