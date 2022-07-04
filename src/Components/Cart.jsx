@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { CartContext } from '../Context/CartProvider';
+import Swal from 'sweetalert2'
 
 
 import ItemCart from './ItemCart'
@@ -45,12 +46,38 @@ const Cart = () => {
                 if(data[cupon] === cuponState){
                     if(cuponState == "XPRIMER"){
                         setCuponActiveState(500)
-                    } else if(cuponState=="30%OFF"){
-                        setCuponActiveState()
-                    }
+                        Swal.fire({
+                            title: 'Cupon agregado',
+                            text: 'Se ha aplicado el descuento',
+                            icon: 'success',
+                            iconColor:"#ff8a4c",
+                            confirmButtonText: 'Continuar',
+                            confirmButtonColor: "#ff8a4c"
+                          })
+                          return
+                    } 
+                }else{
+                    Swal.fire({
+                        title: 'Cupon invalido',
+                        text: 'El cupón es invalido.',
+                        icon: 'error',
+                        iconColor:"#ff8a4c",
+                        confirmButtonText: 'Volver',
+                        confirmButtonColor: "#ff8a4c"
+                      })
+            
                 }
+        } 
+        }else{
+            Swal.fire({
+                title: 'Error',
+                text: 'Agrega un producto al carrito.',
+                icon: 'error',
+                iconColor:"#ff8a4c",
+                confirmButtonText: 'Volver',
+                confirmButtonColor: "#ff8a4c"
+              })
         }
-     }
     }   
     
 

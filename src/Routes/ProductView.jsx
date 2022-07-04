@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../Context/CartProvider'
 import { ProductsContext } from '../Context/ProductsProvider'
+import Swal from 'sweetalert2'
 
 const ProductView = () => {
 
@@ -40,6 +41,15 @@ const ProductView = () => {
         index == -1 ? cart.push(item) : cart[index].quantyCart+=quanty;
         
         
+        Swal.fire({
+            title: 'Agregado!',
+            text: 'Producto agregado exitosamente.',
+            icon: 'success',
+            iconColor:"#ff8a4c",
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: "#ff8a4c"
+          })
+
         // if (cart.hasOwnProperty(item.name)) {
         //     item.quantyCart = cart[item.name].cantidad + 1
         // }
