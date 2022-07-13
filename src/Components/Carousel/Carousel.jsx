@@ -50,8 +50,8 @@ const Carousel = () => {
 
  
   return (
-    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container sm:pb-10">
-        <h2 className="text-center text-3xl text-blackp font-semibold mb-10 sm:text-2xl sm:mb6">Nuevos Ingresos</h2>
+    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container sm:pb-10 md:w-full">
+        <h2 className="text-center text-3xl text-blackp font-semibold mb-10 sm:text-2xl sm:mb6 md:text-2xl">Nuevos Ingresos</h2>
         <div className="flex gap-2 colums-3  items-center overflow-x-auto sm:hidden">
             {mapear(dataProducts)}
         </div>

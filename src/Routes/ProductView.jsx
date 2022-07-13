@@ -10,10 +10,9 @@ const ProductView = () => {
 
     const [quanty, setQuanty] = useState(1)
 
-    const { cart, cartState, setCartState, cartTrue, cartFalse } = useContext(CartContext);
+    const { cart } = useContext(CartContext);
 
     const {dataProducts} = useContext(ProductsContext)
-
 
     const producto = dataProducts.filter(product=> product.nombre == name)
    
@@ -23,8 +22,7 @@ const ProductView = () => {
     },[quanty])
 
     const addCart = (product) =>{
-        
-       
+           
         let item = {
             name: product.nombre,
             price: product.precio,
@@ -33,66 +31,31 @@ const ProductView = () => {
             quantyCart: quanty
         }
 
-
         //verificar existencia
 
         const index = cart.findIndex(p => p.name === item.name);
 
         index == -1 ? cart.push(item) : cart[index].quantyCart+=quanty;
-        
-        // const Toast = Swal.mixin({
-        //     toast: true,
-        //     position: 'top-end',
-        //     showConfirmButton: false,
-        //     timer: 1500,
-        //     timerProgressBar: true,
-        //     didOpen: (toast) => {
-        //       toast.addEventListener('mouseenter', Swal.stopTimer)
-        //       toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //     }
-        //   })
-          
-        //   Toast.fire({
-        //     icon: 'success',
-        //     iconColor:"#ff8a4c",
-        //     title: 'Producto Agregado'
-        //   })
 
-
-         Swal.fire({
+        Swal.fire({
              title: 'Agregado!',
              text: 'Producto agregado exitosamente.',
              icon: 'success',
-            iconColor:"#ff8a4c",
-            showConfirmButton: false,
-            //  confirmButtonText: 'Continuar',
-            //  confirmButtonColor: "#ff8a4c",
+             iconColor:"#ff8a4c",
+             showConfirmButton: false,
              timer:1500,
              timerProgressBar:true
-             
-           })
-
-        // if (cart.hasOwnProperty(item.name)) {
-        //     item.quantyCart = cart[item.name].cantidad + 1
-        // }
-    
-        // cart[producto.id] = { ...item }
-       
-    
-        console.log(cart)
+           })      
     }
 
-    console.log(cart)
- 
   return (
-    <div className='px-44 py-12 flex mx-auto bg-gray-100 sm:px-0 py-6'>
+    <div className='px-44 py-12 flex mx-auto bg-gray-100 sm:px-0 sm:py-6 md:px-10'>
         <div className='w-full'>
         <div className='flex sm:flex-col sm:gap-8'>
-        <div className='w-2/4 flex justify-center mx-auto'>
-            <div className='w-96 bg-white flex justify-center shadow-gray-400 shadow-2xl rounded-xl'>
-                <img className='py-5' src={producto[0].URL} alt={producto[0].nombre} />
-            </div>
-            
+        <div className='w-2/4 flex justify-center mx-auto md:items-center sm:w-72 '>
+            <div className='h-96 bg-white flex justify-center shadow-gray-400 shadow-2xl rounded-xl md:shadow-xl md:h-96 sm:h-72 '>
+                <img className='py-5 md:h-96' src={producto[0].URL} alt={producto[0].nombre} />
+            </div> 
         </div>
         <div className='w-2/4 flex flex-col mr-0 ml-auto justify-center sm:w-5/6 sm:mx-auto'>
             <h2 className='text-3xl font-bold mb-6 sm:text-2xl text-justify'>{producto[0].nombre}</h2>
@@ -132,15 +95,15 @@ const ProductView = () => {
         </div>
         <div className='flex gap-10 sm:flex-col sm:gap-4 sm:px-6 sm:py-10'>
             <div className='w-4/6 p-10 text-justify sm:w-full sm:p-0'>
-                <h2 className='mb-6 text-2xl font-semibold'>Caracteristicas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda magni cum recusandae veritatis cumque voluptate aliquam corporis illo ut ex, laboriosam optio saepe obcaecati repudiandae odio enim id nesciunt similique.
+                <h2 className='mb-6 text-2xl font-semibold '>Caracteristicas</h2>
+                <p className='sm:text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda magni cum recusandae veritatis cumque voluptate aliquam corporis illo ut ex, laboriosam optio saepe obcaecati repudiandae odio enim id nesciunt similique.
                 Voluptatem velit voluptates doloremque vel, temporibus assumenda magnam accusamus sit corrupti molestiae, quas autem neque facere incidunt consequuntur? Harum repellendus nemo odio ad quae ullam exercitationem quis, quidem dolores voluptates!
                 Nostrum consequatur velit expedita, repudiandae veniam veritatis nemo inventore assumenda numquam ratione nam pariatur modi! Doloribus officiis veniam neque? Veniam molestias totam libero cupiditate id quam voluptates dignissimos animi quo.
                 Ad soluta, laborum maiores totam fuga sit blanditiis cumque numquam ratione harum error iusto magni maxime deserunt ducimus dolores enim minima, vero adipisci alias iure? Quidem dolores voluptate ad error.</p>
             </div>
             <div className='w-2/6 sm:w-full'>
                 <h2 className='pt-10 text-2xl font-semibold mb-6 sm:pt-0 sm:text-center sm:w-full'>¿Que incluye?</h2>
-                <ul>
+                <ul className='sm:text-sm'>
                     <li> <span className='text-orange-400 font-semibold mr-2 w-4'>1x</span>Caja original</li>                    
                     <li> <span className='text-orange-400 font-semibold mr-2 w-4'>1x</span>Cables</li>
                     <li> <span className='text-orange-400 font-semibold mr-2 w-4'>2x</span>Accesorios</li>

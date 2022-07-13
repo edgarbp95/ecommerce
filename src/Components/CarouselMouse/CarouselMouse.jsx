@@ -47,8 +47,8 @@ const CarouselMouse = () => {
 
   return (
     
-    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container sm:pb-18">
-        <h2 className="text-center text-3xl text-blackp font-semibold mb-10 sm:text-2xl sm:mb-6">Mouse Gamers</h2>
+    <div className="h-auto w-3/4 p-5 mx-auto pb-20 relative sm:container sm:pb-18 md:w-full">
+        <h2 className="text-center text-3xl text-blackp font-semibold mb-10 sm:text-2xl sm:mb-6 md:text-2xl">Mouse Gamers</h2>
         <div className="flex gap-2 colums-3  items-center overflow-x-auto sm:hidden">
             {drawCards(dataProducts)}
         </div>

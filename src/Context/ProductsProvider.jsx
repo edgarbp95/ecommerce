@@ -2,10 +2,7 @@ import { createContext, useState } from "react";
 
 
 export const ProductsContext = createContext();
-
-    
-    
-
+ 
     const ProductsProvider = (props) =>{
         const [viewState,setViewState] = useState();
         const dataProducts = [

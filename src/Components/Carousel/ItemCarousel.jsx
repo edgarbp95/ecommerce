@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { ProductsContext } from '../../Context/ProductsProvider'
  
     const ItemCarousel = ({dataIndex,image,name,clase,precio,viewProduct}) => {
@@ -17,16 +17,16 @@ import { ProductsContext } from '../../Context/ProductsProvider'
 
         return (
           <>
-            <div data-index={dataIndex} className={`${clase} flex-1 min-w-fit  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400 sm:`}>
+            <div data-index={dataIndex} className={`${clase} flex-1 min-w-fit  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400`}>
               <Link onClick={scrollTop} to={`/${name}`}>
                   <img
-                  className="py-5 rounded-t-lg h-56 min-w-fit mx-auto sm:h-44 sm:py-2" 
+                  className="py-5 rounded-t-lg h-56 min-w-fit mx-auto sm:h-44 sm:py-2 md:h-48" 
                   src={image}
                   alt="product image"
                   />
                   
               </ Link >
-              <div className="px-5 pb-5">
+              <div className="px-5 pb-5 md:px-4">
                   
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-base">
                       {name}

@@ -1,39 +1,24 @@
+import { useForm } from "react-hook-form"
+import Input from "./Input"
 
 
 const LoginForm = () => {
+
+    const {handleSubmit,register} = useForm();
+
+    const onSubmit = (data)=>{
+        console.log(data)
+    }
   return (
-      <form className="w-1/4 mx-auto m-10  flex flex-col sm:w-3/4">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-1/4 mx-auto m-10  flex flex-col sm:w-3/4 md:w-2/6">
             <div className="relative z-0 w-full mb-6 group">
-            <input
-                type="email"
-                name="floating_email"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-600 peer"
-                placeholder=" "
-                required=""
-            />
-            <label
-                htmlFor="floating_email"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-                Dirección de correo
-            </label>
+            <Input type="email" id="user" htmlF="user" text="Usuario" label="user" register={register} required="Campo requerido"/>
             </div>
+
             <div className="relative z-0 w-full mb-6 group">
-            <input
-                type="password"
-                name="floating_password"
-                id="floating_password"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-600 peer"
-                placeholder=" "
-                required=""
-            />
-            <label
-                htmlFor="floating_password"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-                Contraseña
-            </label>
+            <Input type="password" id="loginPassword" htmlF="loginPassword" text="Contraseña" label="loginPassword" register={register} required="Campo requerido"/>
             </div>
+
             <a className="text-sm text-orange-500 hover:underline dark:text-orange-500 relative h-6 w-36 font-medium " href="">Recuperar contraseña</a>
             <button
             type="submit"

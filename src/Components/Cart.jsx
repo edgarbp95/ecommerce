@@ -1,88 +1,33 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import { CartContext } from '../Context/CartProvider';
-import Swal from 'sweetalert2'
-
-
+import { CouponValidation } from '../Hooks/CouponValidation';
 import ItemCart from './ItemCart'
 
+
+
+
 const Cart = () => {
+    let shipping = 200;
 
-    const { cart, cartState, setCartState, cartTrue, cartFalse } = useContext(CartContext);
 
-  
-
-    console.log(cart)
+    const [couponValidation, couponState, setCouponState, couponActiveState, setCouponActiveState, activatedCoupon] = CouponValidation()
     
-    console.log(cartState)
+
+    const { cart } = useContext(CartContext);
 
     useEffect(()=>{
-
     },[cart])
 
-    let descuento = 0;
-
-    console.log(cart)
+    //Sumando los precios del
 
     let arraySubtotal = [];
 
     for(let i in cart){
         arraySubtotal.push(cart[i].price*cart[i].quantyCart)
     }
-
+    
     let subtotal = arraySubtotal.reduce((prev,current)=>prev+current,0)
-
-    let shipping = 200;
-
-    
-    let cuponesActivos =["XPRIMER","30%OFF", "MOTHERDAY"]
-
-    const [cuponState, setCuponState] = useState(0);
-
-    const [cuponActiveState, setCuponActiveState] = useState(0);
-
-    const cuponValidation = (data)=>{
-        if(cart!=""){
-            for(let cupon in data){
-                if(data[cupon] === cuponState){
-                    if(cuponState == "XPRIMER"){
-                        setCuponActiveState(500)
-                        Swal.fire({
-                            title: 'Cupon agregado',
-                            text: 'Se ha aplicado el descuento',
-                            icon: 'success',
-                            iconColor:"#ff8a4c",
-                            showConfirmButton: false,
-                            timer:1500,
-                            timerProgressBar:true
-                          })
-                          return
-                    } 
-                }else{
-                    Swal.fire({
-                        title: 'Cupon invalido',
-                        text: 'El cupón es invalido.',
-                        icon: 'error',
-                        iconColor:"#ff8a4c",
-                        showConfirmButton: false,
-                        timer:1500,
-                        timerProgressBar:true
-                      })
-            
-                }
-        } 
-        }else{
-            Swal.fire({
-                title: 'Error',
-                text: 'Agrega un producto al carrito.',
-                icon: 'error',
-                iconColor:"#ff8a4c",
-                showConfirmButton: false,
-                timer:1500,
-                timerProgressBar:true
-              })
-        }
-    }   
-    
+  
 
   return (
     <div className=''>
@@ -106,25 +51,33 @@ const Cart = () => {
             <div className='flex justify-between border-b border-gray-300'>
                 <p className='text-gray-400 text-xs tracking-wide'>DESCUENTOS</p>
                 <span className='text-gray-600 font-medium text-base'>
-                    ${cuponActiveState}
+                    ${couponActiveState}
                 </span>
             </div>
             <div className='flex justify-between '>
                 <p className='text-gray-400 text-xs tracking-wide'>TOTAL</p>
-                <span className='text-gray-600 font-medium text-base'>${cart=="" ? 0 : subtotal-shipping-cuponActiveState}</span>
+                <span className='text-gray-600 font-medium text-base'>${cart=="" ? 0 : subtotal-shipping-couponActiveState}</span>
             </div>
             <div className='flex flex-col justify-between'>
                <div className='flex justify-between w-full'>
-                    <input onChange={(e)=>{setCuponState(e.target.value)}} type="text" placeholder="XXX-XXX" className='h-10 w-2/4 text-gray-500 mt-4 text-sm text-center dark:focus:border-orange-400 focus:outline-none focus:ring-0 focus:border-orange-400 '/>
-                    <button onClick={()=>{cuponValidation(cuponesActivos)}} className='h-10 w-28 text-white  mt-4 text-sm bg-orange-400'>Validar cupon</button>
+                    <input onChange={(e)=>{setCouponState(e.target.value)}} type="text" placeholder="XXX-XXX" className='h-10 w-2/4 text-gray-500 mt-4 text-sm text-center dark:focus:border-orange-400 focus:outline-none focus:ring-0 focus:border-orange-400 '/>
+                    <button onClick={()=>{couponValidation(couponState,subtotal)}} className='h-10 w-28 text-white  mt-4 text-sm bg-orange-400'>Validar cupon</button>
                     
                 </div>
-                {cuponActiveState==500 && 
-                <div className='flex gap-2 border-2 border-orange-500 w-2/4 text-xs justify-between p-1 text-white bg-orange-500 mt-2 sm:w-3/4'>
-                    <p>XPRIMER ACTIVADO</p>
-                    <button onClick={()=>{setCuponActiveState(0)}} >X</button>
-                </div>
+                {couponActiveState==500 && 
+                    <div className='flex gap-2 border-2 border-orange-500 w-2/4 text-xs justify-between p-1 text-white bg-orange-500 mt-2 sm:w-3/4'>
+                        <p>XPRIMER ACTIVADO</p>
+                        <button onClick={()=>{setCouponActiveState(0)}} >X</button>
+                    </div>
                 }
+
+                {couponActiveState== Math.round(subtotal*0.3) && couponActiveState!=0 && 
+                    <div className='flex gap-2 border-2 border-orange-500 w-2/4 text-xs justify-between p-1 text-white bg-orange-500 mt-2 sm:w-3/4'>
+                        <p>30%OFF ACTIVADO</p>
+                        <button onClick={()=>{setCouponActiveState(0)}} >X</button>
+                    </div>
+                }
+
                 <button className='h-10 w-full text-white mx-auto mt-4 bg-orange-400'>Confirmar</button>
             </div>
             
