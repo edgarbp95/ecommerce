@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Input from '../Components/Input'
 
@@ -12,6 +12,8 @@ const CartForm = () => {
         console.log(data)
     }
 
+    console.log(paymentMethod)
+   
   return (
     <div className='w-3/4 bg-white rounded-xl sm:w-full'>
             <form onSubmit={handleSubmit(onSubmit)} className=" w-5/6 py-10 mx-auto flex flex-col">
@@ -43,7 +45,9 @@ const CartForm = () => {
                 </div>
            
             <p className='font-medium text-orange-500 text-base tracking-wider mt-4'>METODOS DE PAGO</p>
-            <select  onChange={(e)=>{setPaymentMethod(e.target.value)}} id="payment-method" {...register("paymentMethod",{validate:{ valor: (v)=> v==="Seleccionar Método" ? false : true}})} className="mb-6 bg-gray-50 border w-1/3 sm:w-2/3 border-gray-300 text-gray-500 mt-4 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+            <select  onChange={(e)=>{setPaymentMethod(e.target.value)}} id="payment-method"  
+            // {...register("selectPaymentMethod",{validate:{ valor: (v)=> v==="Seleccionar Método" ? false : true}})}
+            className="mb-6 bg-gray-50 border w-1/3 sm:w-2/3 border-gray-300 text-gray-500 mt-4 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                 <option defaultValue>Seleccionar Método</option>
                 <option value="MP">MercadoPago</option>
                 <option value="debit-credit">Tarjeta de Debito/Credito</option>

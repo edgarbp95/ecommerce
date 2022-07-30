@@ -149,3 +149,7 @@ button {
   height: 100%;
   overflow: hidden;
 }
+
+.img-card{
+  min-width: 30px;
+}

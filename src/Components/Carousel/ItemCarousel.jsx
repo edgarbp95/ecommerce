@@ -20,7 +20,7 @@ import { ProductsContext } from '../../Context/ProductsProvider'
             <div data-index={dataIndex} className={`${clase} flex-1 min-w-fit  bg-white rounded-lg shadow-md dark:bg-gray-600 dark:border-gray-400`}>
               <Link onClick={scrollTop} to={`/${name}`}>
                   <img
-                  className="py-5 rounded-t-lg h-56 min-w-fit mx-auto sm:h-44 sm:py-2 md:h-48" 
+                  className="py-5 rounded-t-lg h-56 mx-auto sm:h-44 sm:py-2 md:h-48 img-card" 
                   src={image}
                   alt="product image"
                   />
